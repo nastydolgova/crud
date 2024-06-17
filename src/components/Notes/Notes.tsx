@@ -15,10 +15,10 @@ export default function Notes() {
     const addNote = async () => {
         await fetch("http://localhost:7070/notes", {
             method: "POST",
-            body: `{
-                id: ${notes.length},
-                content: ${content}
-            }`,
+            body: JSON.stringify({
+                id: notes.length,
+                content: content
+            }),
             headers: {
                 "Content-Type": "application/json",
             },
